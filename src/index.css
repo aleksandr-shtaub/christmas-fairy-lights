@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    padding: 5rem 0;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: white;
+    font-size: 5rem;
+    margin: 3rem;
+}
+
+.thread {
+    height: 1px;
+    width: 100%;
+    background-color: white;
+}
+
+.all-lamps {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 0 5rem 0;
+}
+
+.lamp {
+    width: 30px;
+    top: 4px;
+    z-index: 100;
+    position: relative;
+    height: 30px;
+    border: solid 1px transparent;
+    border-radius: 50%;
+    background-color: transparent;
+    /* background-image: url(./assets/lamps/bulb.svg); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.lamp::before {
+    content: '';
+    display: block;
+    position: relative;
+    top: -5px;
+    right: -9px;
+    z-index: -2;
+    width: 10px;
+    height: 6px;
+    background-color: white;
+}
+
+.lamp:hover {
+    border: 1px solid rgba(255, 255, 255, 100);
+}
+
+.lamp-on {
+    animation: blink 5s infinite both;
+    animation-timing-function: steps(1, jump-start);
+}
+
+.lamp-on::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transform: scale(1.1);
+    filter: blur(15px);
+    opacity: 0.9;
+    background-color: inherit
+}
+
+
+.lamp-broken {
+    background-color: transparent;
+}
+
+@keyframes blink {
+    0%, 100% {
+        background-color: #88F7E2;
+    }
+    20% {
+        background-color: #44D492;
+    }
+    40% {
+        background-color: #F5EB67;
+    }
+    60% {
+        background-color: #FFA15C;
+    }
+    80% {
+        background-color: #FA233E;
+    }
+}
